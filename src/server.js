@@ -8,10 +8,9 @@ import { uri } from "./utils/constants.js";
 dotenv.config();
 
 class Application {
-  constructor(port, authService, routes) {
+  constructor(port, routes) {
     this.port = port;
     this.app = express();
-    this.authService = authService;
     this.routes = routes;
     this.db = null;
   }
@@ -58,7 +57,7 @@ class Application {
 }
 
 const port = 3001;
-const Server = new Application(port, null, routes);
+const Server = new Application(port, routes);
 
 // Start the server
 Server.start();
