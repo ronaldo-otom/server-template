@@ -5,21 +5,16 @@ import { AxieController } from "./axie.controller.js";
 const router = Router();
 
 export default (app) => {
-  app.use("/axies", router);
+  app.use("/axies", verifyAuth, router);
 
   const axieController = new AxieController();
 
-  router.post(
-    "/store-records",
-    verifyAuth,
-    axieController.FetchAxiesFromOtherSource
-  );
+  router.post("/store-records", axieController.FetchAxiesFromOtherSource);
 
-  router.get("/get-all", verifyAuth, axieController.getAllAxiesFromDB);
+  router.get("/get-all", axieController.getAllAxiesFromDB);
 
   router.post(
     "/add",
-    verifyAuth,
     validate({
       body: Joi.object({
         axie_id: Joi.string().required().label("Axie ID"),
