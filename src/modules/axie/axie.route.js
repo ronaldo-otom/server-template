@@ -31,15 +31,4 @@ export default (app) => {
     }),
     axieController.addAxie
   );
-
-  // router.post(
-  //   "/login",
-  //   validate({
-  //     body: Joi.object({
-  //       username: Joi.string().required().label("Username"),
-  //       password: Joi.string().required().label("Password"),
-  //     }),
-  //   }),
-  //   authController.Login
-  // );
 };

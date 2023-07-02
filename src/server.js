@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import express from "express";
 import mongoose from "mongoose";
 import routes from "./modules/routes.js";
+import { uri } from "./utils/constants.js";
 
 dotenv.config();
 
@@ -30,8 +31,6 @@ class Application {
 
     try {
       // Connect to MongoDB
-      const uri =
-        "mongodb+srv://ronix:W0Qj9MSt6I6Ap24P@ronixproject.ihefc.mongodb.net/breederdao"; // Update with your MongoDB URI
       await mongoose.connect(uri, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
